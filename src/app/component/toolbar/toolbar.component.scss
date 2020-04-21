@@ -1,0 +1,26 @@
+::ng-deep .mat-toolbar {
+  background: #1b1919;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.icon {
+  color: #D8AE15;
+}
+
+.logo{
+  height: inherit;
+  padding: inherit;
+}
+
+.example-container {
+  height: 100%;
+  background: black;
+}
+
+.drawer {
+  width: 26%;
+  transform: none;
+  visibility: visible;
+  height: 100%;
+  background: rgb(31, 30, 30);
+}

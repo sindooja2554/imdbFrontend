@@ -1,0 +1,21 @@
+<mat-toolbar>
+  <button mat-icon-button (click)="opened = !opened">
+    <mat-icon class="icon">menu</mat-icon>
+  </button>
+
+  <img class="logo" src="../../../assets/imdb_fb_logo-1730868325._CB514892123_.png" size="50">
+
+  <!-- <mat-form-field appearance="outline">
+    <mat-label>Outline form field</mat-label>
+    <input matInput placeholder="Placeholder">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+  </mat-form-field> -->
+</mat-toolbar>
+<mat-drawer-container class="example-container">
+  <mat-drawer class="drawer" mode="side" [(opened)]="opened"> </mat-drawer>
+
+  <mat-drawer-content>
+    <!-- <app-note></app-note> -->
+    <a>HIIIIIIIIIIIIII</a>
+  </mat-drawer-content>
+</mat-drawer-container>
