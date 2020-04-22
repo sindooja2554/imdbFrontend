@@ -5,6 +5,10 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatListModule } from '@angular/material/list';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCardModule } from '@angular/material/card';
+
 
 @NgModule({
   declarations: [],
@@ -14,7 +18,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatListModule,
+    MatExpansionModule,
+    MatCardModule
   ],
   exports: [
     CommonModule,
@@ -22,7 +29,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatListModule,
+    MatExpansionModule,
+    MatCardModule
   ],
 })
 export class MaterialModule { }

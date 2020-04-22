@@ -7,11 +7,9 @@ import { Component, OnInit } from "@angular/core";
 })
 export class ToolbarComponent implements OnInit {
   opened: boolean = false;
-  constructor() {}
+  panelOpenState: boolean = false;
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  // toggle() {
-  //   this.clicked = true;
-  // }
 }

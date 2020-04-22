@@ -1,0 +1,16 @@
+.list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.title {
+    width: 100%;
+    color: #D8AE15;
+    display: flex;
+    font-size: xx-large;
+    margin-left: 75px;
+}

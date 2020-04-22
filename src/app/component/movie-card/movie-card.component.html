@@ -1,0 +1,10 @@
+<div class="list">
+    <span class="title" *ngIf="upComingRelease.length !== 0">
+        Upcoming Movies
+    </span>
+    <app-display *ngFor="let movie of upComingRelease" [movies]="movie"></app-display>
+    <span class="title" *ngIf="topRatedMovies.length !== 0">
+        Top Rated Movies
+    </span>
+    <app-display *ngFor="let movie of topRatedMovies" [movies]="movie"></app-display>
+</div>
