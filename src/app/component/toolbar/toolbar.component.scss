@@ -133,3 +133,11 @@
   height: 100%;
   background: rgb(31, 30, 30);
 }
+
+::ng-deep .mat-drawer-content {
+  position: relative;
+  z-index: 1;
+  display: block;
+  height: 100%;
+  overflow-x: hidden !important;
+}

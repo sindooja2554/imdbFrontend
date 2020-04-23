@@ -7,4 +7,8 @@
         Top Rated Movies
     </span>
     <app-display *ngFor="let movie of topRatedMovies" [movies]="movie"></app-display>
+    <span class="title" *ngIf="bornToday.length !== 0">
+        Born Today
+    </span>
+    <app-display *ngFor="let actor of bornToday" [actors]="actor"></app-display>
 </div>

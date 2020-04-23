@@ -13,4 +13,9 @@ export class HttpService {
     console.log("Url", this.baseUrl + url);
     return this.http.get(this.baseUrl + url);
   }
+
+  getOne(url) {
+    console.log("Url", this.baseUrl + url);
+    return this.http.get(this.baseUrl + url);
+  }
 }

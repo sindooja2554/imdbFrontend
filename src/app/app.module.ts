@@ -10,9 +10,10 @@ import { DashboardComponent } from "./component/dashboard/dashboard.component";
 import { ToolbarComponent } from "./component/toolbar/toolbar.component";
 import { MovieCardComponent } from './component/movie-card/movie-card.component';
 import { DisplayComponent } from './component/display/display.component';
+import { ShowMovieDetailsComponent } from './component/show-movie-details/show-movie-details.component';
 
 @NgModule({
-  declarations: [AppComponent, DashboardComponent, ToolbarComponent, MovieCardComponent, DisplayComponent],
+  declarations: [AppComponent, DashboardComponent, ToolbarComponent, MovieCardComponent, DisplayComponent, ShowMovieDetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

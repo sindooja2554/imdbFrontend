@@ -1,0 +1,82 @@
+.list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.example-card {
+    max-width: 520px;
+    background: #1B1919;
+}
+
+::ng-deep .mat-card-title {
+    display: block;
+    margin-bottom: 8px;
+    color: white;
+}
+
+::ng-deep .mat-icon {
+    background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+    height: 24px;
+    width: 24px;
+    color: white;
+}
+
+.star-rating {
+    display: flex;
+    flex-direction: row;
+}
+
+.plot {
+    color: white;
+    font-size: 18px;
+}
+
+.rating {
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rate {
+    color : #D8AE15;
+}
+
+.title-movie {
+    display: flex;
+    justify-content: space-between;
+}
+
+.actors-of-movie {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+}
+
+.actor-name {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #1397D1;
+}
+
+.title {
+    color:#D8AE15;
+}
+
+.release-date {
+    margin-left: 10px;
+    color: white;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    color: white;
+    outline: auto;
+}

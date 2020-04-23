@@ -12,4 +12,9 @@ export class MovieService {
     console.log("In service")
     return this.http.getAll('movie');
   }
+
+  getOne(key) {
+    console.log("In service");
+    return this.http.getOne('movie/' + key);
+  }
 }

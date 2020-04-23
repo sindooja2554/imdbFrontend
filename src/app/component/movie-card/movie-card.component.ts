@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../../services/movie/movie.service'
+import { ActorService } from 'src/app/services/actor/actor.service';
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
@@ -9,22 +10,26 @@ export class MovieCardComponent implements OnInit {
 
   topRatedMovies: Array<any> = [];
   upComingRelease: Array<any> = [];
-  constructor(private movie: MovieService) { }
+  bornToday: Array<any> = [];
+  today = new Date()
+  dd = String(this.today.getDate()).padStart(2, '0');
+  mm = String(this.today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  yyyy = this.today.getFullYear();
+
+  date = this.yyyy + '/' + this.mm + '/' + this.dd;
+
+  constructor(private movie: MovieService,
+    private actor: ActorService) {
+    this.today = new Date(this.date)
+  }
 
   ngOnInit() {
-    console.log("In movie-card")
-    this.getAllMovies()
+    this.getAllMovies();
+    this.getAllActors();
   }
 
   getAllMovies() {
-    var today = new Date()
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = today.getFullYear();
-
-    var date = yyyy + '/' + mm + '/' + dd;
-    today = new Date(date)
-    console.log("In the function calling service", date)
+    console.log("In the function calling service", this.date)
     this.movie.getAll()
       .subscribe((result: any) => {
         Object.getOwnPropertyNames(result.data).map(key => {
@@ -35,7 +40,7 @@ export class MovieCardComponent implements OnInit {
             var releaseDate = result.data[key].releaseDate.split("/")
             var date = new Date(releaseDate[2], releaseDate[1], releaseDate[0])
 
-            if (today < date) {
+            if (this.today < date) {
               console.log("comparing==============>", result.data[key])
               this.upComingRelease.push(result.data[key])
             }
@@ -53,5 +58,20 @@ export class MovieCardComponent implements OnInit {
         }
         console.log("data------------------->", this.topRatedMovies)
       })
+  }
+
+  getAllActors() {
+    this.actor.getAllActors().subscribe((result: any) => {
+      Object.getOwnPropertyNames(result.data).map(key => {
+        if (result.data[key].dob !== undefined) {
+          var dob = result.data[key].dob.split("/")
+          var today = this.date.split("/");
+          if (today[2] === dob[0] && today[1] === dob[1]) {
+            console.log("comparing born date==============>", result.data[key])
+            this.bornToday.push(result.data[key])
+          }
+        }
+      });
+    })
   }
 }

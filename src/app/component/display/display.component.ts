@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { BehaviorSubject } from 'rxjs'
+// import { BehaviorSubject } from 'rxjs'
+import { Router } from "@angular/router";
+
 
 @Component({
   selector: 'app-display',
@@ -9,9 +11,19 @@ import { BehaviorSubject } from 'rxjs'
 export class DisplayComponent implements OnInit {
 
   @Input() movies;
-  movieUrl;
-  constructor() { }
+  @Input() actors;
+  today: any
+  constructor(private router: Router) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.today = new Date().toJSON().slice(0, 10).replace(/-/g, '/').split("/");
+    console.log("date ==========", this.today)
+  }
 
+  movie(movie) {
+    // let key = movie._id;
+    let key = btoa(movie._id);
+    console.log("key------------------>", key)
+    this.router.navigate(["home/movie/" + key])
+  }
 }
