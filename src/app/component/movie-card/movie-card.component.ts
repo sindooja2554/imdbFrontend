@@ -11,19 +11,24 @@ export class MovieCardComponent implements OnInit {
   topRatedMovies: Array<any> = [];
   upComingRelease: Array<any> = [];
   bornToday: Array<any> = [];
-  today = new Date()
-  dd = String(this.today.getDate()).padStart(2, '0');
-  mm = String(this.today.getMonth() + 1).padStart(2, '0'); //January is 0!
-  yyyy = this.today.getFullYear();
+  today = new Date();
+  dd: string;
+  mm: string;
+  yyyy: number;
+  date: string
 
-  date = this.yyyy + '/' + this.mm + '/' + this.dd;
 
   constructor(private movie: MovieService,
     private actor: ActorService) {
-    this.today = new Date(this.date)
   }
 
   ngOnInit() {
+    this.dd = String(this.today.getDate()).padStart(2, '0');
+    this.mm = String(this.today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    this.yyyy = this.today.getFullYear();
+
+    this.date = this.yyyy + '/' + this.mm + '/' + this.dd;
+    this.today = new Date(this.date)
     this.getAllMovies();
     this.getAllActors();
   }

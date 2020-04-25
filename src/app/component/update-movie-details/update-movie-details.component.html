@@ -1,0 +1,20 @@
+<div class="list">
+    <span class="word">
+        Update information for {{movieDetails.name}}
+    </span>
+    <span class="word">
+        ({{movieDetails.yearOfRelease}})
+    </span>
+    <div class="poster-image">
+        <img mat-card-image class="poster" [src]="movieDetails.poster" alt="Poster of the movie">
+        <div class="add-poster">
+            <button mat-button class="button">
+                <mat-icon>add</mat-icon>
+                Add new poster
+            </button>
+        </div>
+
+    </div>
+
+
+</div>

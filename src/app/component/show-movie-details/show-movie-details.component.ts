@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MovieService } from "../../services/movie/movie.service"
+import { Router } from "@angular/router";
+import { MovieService } from '../../services/movie/movie.service'
+import { DataService } from '../../services/data/data.service'
 
 @Component({
   selector: 'app-show-movie-details',
@@ -9,17 +11,17 @@ import { MovieService } from "../../services/movie/movie.service"
 })
 export class ShowMovieDetailsComponent implements OnInit {
 
+  // details: Object
   param: any
   movieDetails: Array<any>;
-  constructor(private router: ActivatedRoute, private movie: MovieService) { }
+  @Output() updateEvent = new EventEmitter<string>();
+  constructor(private router: ActivatedRoute, private movie: MovieService, private data: DataService, private routes: Router) { }
 
   ngOnInit() {
+    this.data.updateDetails.subscribe(details => this.movieDetails = details)
     this.router.paramMap.subscribe(params => {
-      console.log("key--------------->", params.get("key"))
       this.param = params.get("key");
-      console.log("params.....................", this.param)
       var key = atob(this.param)
-      console.log("key-------------->", key)
       this.getMovieDetails(key);
     });
   }
@@ -32,6 +34,13 @@ export class ShowMovieDetailsComponent implements OnInit {
       this.movieDetails = result.data;
       console.log("data--------=============>", this.movieDetails)
       // }
+      // this.data.updateDetails.subscribe(details => this.movieDetails = details)
+
     })
+  }
+
+  update() {
+    this.data.UpdateMovieDetails(this.movieDetails)
+    this.routes.navigate(["updates"])
   }
 }
