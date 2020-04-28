@@ -6,6 +6,8 @@ import {
   MAT_DIALOG_DATA,
 } from "@angular/material/dialog";
 import { AddNewActorComponent } from "../add-new-actor/add-new-actor.component";
+import { MovieService } from "../../services/movie/movie.service";
+import { AddNewProducerComponent } from "../add-new-producer/add-new-producer.component";
 
 @Component({
   selector: "app-update-movie-details",
@@ -14,7 +16,11 @@ import { AddNewActorComponent } from "../add-new-actor/add-new-actor.component";
 })
 export class UpdateMovieDetailsComponent implements OnInit {
   movieDetails: Array<any>;
-  constructor(private data: DataService, public dialog: MatDialog) {}
+  constructor(
+    private data: DataService,
+    public dialog: MatDialog,
+    private movie: MovieService
+  ) {}
 
   ngOnInit() {
     this.data.updateDetails.subscribe(
@@ -31,5 +37,16 @@ export class UpdateMovieDetailsComponent implements OnInit {
     //   console.log('The dialog was closed');
     //   this.animal = result;
     // });
+  }
+
+  openDialogTooAddProducer() {
+    this.dialog.open(AddNewProducerComponent);
+  }
+
+  updateMovieDetails(movieDetails): void {
+    console.log("data for updating==============>", movieDetails);
+    this.movie.update(movieDetails).subscribe((result: any) => {
+      console.log("data after updation", result);
+    });
   }
 }

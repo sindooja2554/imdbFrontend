@@ -16,6 +16,7 @@ import { ShowMovieDetailsComponent } from "./component/show-movie-details/show-m
 import { UpdateMovieDetailsComponent } from "./component/update-movie-details/update-movie-details.component";
 import { AddNewActorComponent } from './component/add-new-actor/add-new-actor.component';
 import { LoginComponent } from './component/login/login.component';
+import { AddNewProducerComponent } from './component/add-new-producer/add-new-producer.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { LoginComponent } from './component/login/login.component';
     UpdateMovieDetailsComponent,
     AddNewActorComponent,
     LoginComponent,
+    AddNewProducerComponent,
   ],
   imports: [
     BrowserModule,

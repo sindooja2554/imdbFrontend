@@ -3,13 +3,17 @@
     <span class="fields">
       Name :
     </span>
-    <input class="actor" placeholder="Actor's name" [(ngModel)]="actor.name" />
+    <input
+      class="actor"
+      placeholder="Producer's name"
+      [(ngModel)]="producer.name"
+    />
   </div>
   <div class="actors-details">
     <span class="fields">
       Bio :
     </span>
-    <input class="actor" placeholder="Bio" [(ngModel)]="actor.bio" />
+    <input class="actor" placeholder="Bio" [(ngModel)]="producer.bio" />
   </div>
   <div class="details">
     <span class="fields">
@@ -19,7 +23,7 @@
       matInput
       [matDatepicker]="picker"
       placeholder="Choose a date"
-      [(ngModel)]="actor.dob"
+      [(ngModel)]="producer.dob"
     />
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
@@ -29,7 +33,7 @@
       Sex :
     </span>
     <div class="actor-sex">
-      <mat-radio-group aria-label="Select an option" [(ngModel)]="actor.sex">
+      <mat-radio-group aria-label="Select an option" [(ngModel)]="producer.sex">
         <mat-radio-button value="M">Male</mat-radio-button>
         <mat-radio-button value="F">Female</mat-radio-button>
       </mat-radio-group>

@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { environment } from "../../../environments/environment";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class HttpService {
   baseUrl = environment.baseUrl;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getAll(url) {
     console.log("Url", this.baseUrl + url);
@@ -17,5 +17,10 @@ export class HttpService {
   getOne(url) {
     console.log("Url", this.baseUrl + url);
     return this.http.get(this.baseUrl + url);
+  }
+
+  update(url, data) {
+    console.log("url------------->", this.baseUrl + url);
+    return this.http.put(this.baseUrl + url, data);
   }
 }

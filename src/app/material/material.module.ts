@@ -10,6 +10,9 @@ import { MatExpansionModule } from "@angular/material/expansion";
 import { MatCardModule } from "@angular/material/card";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatDialogModule } from "@angular/material/dialog";
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatNativeDateModule } from "@angular/material";
+import { MatRadioModule } from "@angular/material/radio";
 
 @NgModule({
   declarations: [],
@@ -25,6 +28,9 @@ import { MatDialogModule } from "@angular/material/dialog";
     MatCardModule,
     MatMenuModule,
     MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
   ],
   exports: [
     CommonModule,
@@ -38,6 +44,9 @@ import { MatDialogModule } from "@angular/material/dialog";
     MatCardModule,
     MatMenuModule,
     MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
   ],
 })
 export class MaterialModule {}

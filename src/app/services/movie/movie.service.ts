@@ -1,20 +1,24 @@
-import { Injectable } from '@angular/core';
-import { HttpService } from '../http/http.service';
+import { Injectable } from "@angular/core";
+import { HttpService } from "../http/http.service";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class MovieService {
-
-  constructor(private http: HttpService) { }
+  constructor(private http: HttpService) {}
 
   getAll() {
-    console.log("In service")
-    return this.http.getAll('movie');
+    console.log("In service");
+    return this.http.getAll("movie");
   }
 
   getOne(key) {
     console.log("In service");
-    return this.http.getOne('movie/' + key);
+    return this.http.getOne("movie/" + key);
+  }
+
+  update(data) {
+    console.log("in service");
+    return this.http.update("movie/" + data._id, data);
   }
 }
