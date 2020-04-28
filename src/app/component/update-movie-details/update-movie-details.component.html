@@ -1,20 +1,71 @@
-<div class="list">
-    <span class="word">
-        Update information for {{movieDetails.name}}
-    </span>
-    <span class="word">
-        ({{movieDetails.yearOfRelease}})
-    </span>
-    <div class="poster-image">
-        <img mat-card-image class="poster" [src]="movieDetails.poster" alt="Poster of the movie">
-        <div class="add-poster">
-            <button mat-button class="button">
-                <mat-icon>add</mat-icon>
-                Add new poster
-            </button>
-        </div>
-
+<div class="list" *ngIf="movieDetails.length != []">
+  <span class="word"> Update information for {{ movieDetails.name }} </span>
+  <span class="word"> ({{ movieDetails.yearOfRelease }}) </span>
+  <div class="poster-image">
+    <img
+      mat-card-image
+      class="poster"
+      [src]="movieDetails.poster"
+      alt="Poster of the movie"
+    />
+    <div class="add-poster">
+      <button mat-button class="button">
+        <mat-icon>add</mat-icon>
+        Add new poster
+      </button>
     </div>
-
-
+  </div>
+  <div class="edit-movie-name">
+    <span class="edit-movie">
+      Edit Movie Name:
+    </span>
+    <div class="title">
+      <input
+        matInput
+        placeholder="movieDetails"
+        [(ngModel)]="movieDetails.name"
+        class="movie-name"
+      />
+    </div>
+  </div>
+  <div class="edit-movie-name">
+    <span class="edit-movie">
+      Edit year of release:
+    </span>
+    <div class="title">
+      <input
+        matInput
+        placeholder="movieDetails"
+        [(ngModel)]="movieDetails.yearOfRelease"
+        class="movie-name"
+      />
+    </div>
+  </div>
+  <div class="edit-movie-name">
+    <span class="edit-movie">
+      Edit Actor:
+    </span>
+    <div class="actor" *ngFor="let actor of movieDetails.actors">
+      <button mat-button [matMenuTriggerFor]="menu" class="actors-name">
+        {{ actor.name }}
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Remove Actor</button>
+      </mat-menu>
+    </div>
+    <button mat-button class="actor-name" (click)="openDialog()">
+      Add Actor
+    </button>
+  </div>
+  <div class="edit-movie-name">
+    <span class="edit-movie">
+      Edit Producer:
+    </span>
+    <div class="title">
+      <span class="producer-name">{{ movieDetails.producer.name }}</span>
+    </div>
+    <button mat-button>
+      Add Producer
+    </button>
+  </div>
 </div>
