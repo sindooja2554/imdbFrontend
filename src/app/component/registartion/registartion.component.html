@@ -1,0 +1,128 @@
+<div class="table">
+  <div class="cell">
+    <mat-card class="example-card">
+      <div class="paragraphs">
+        <img
+          class="imdb-logo"
+          src="..\assets\imdb_fb_logo-1730868325._CB514892123_.png"
+          alt="imdb.com logo"
+        />
+      </div>
+
+      <div class="paragraph">
+        Create Account
+      </div>
+
+      <form action="">
+        <div class="example-container">
+          <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input
+              [formControl]="firstName"
+              matInput
+              [(ngModel)]="register.firstName"
+              autocomplete="off"
+              required
+            />
+            <mat-error *ngIf="firstName.invalid">{{
+              getFirstNameErrorMsg()
+            }}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="example-container">
+          <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input
+              [formControl]="lastName"
+              matInput
+              [(ngModel)]="register.lastName"
+              autocomplete="off"
+              required
+            />
+            <mat-error *ngIf="lastName.invalid">{{
+              getLastNameErrorMsg()
+            }}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="example-container">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input
+              [formControl]="email"
+              matInput
+              [(ngModel)]="register.email"
+              placeholder="Enter your email"
+              autocomplete="off"
+              required
+            />
+            <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="example-container" fxFlex.lt-sm="80">
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input
+              [type]="hide ? 'password' : 'text'"
+              [(ngModel)]="register.password"
+              [formControl]="password"
+              matInput
+              required
+            />
+            <mat-icon matSuffix (click)="hide = !hide">{{
+              hide ? "visibility_off" : "visibility"
+            }}</mat-icon>
+            <mat-error *ngIf="password.invalid">{{
+              getPasswordErrorMsg()
+            }}</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="example-container" fxFlex.lt-sm="80">
+          <mat-form-field appearance="outline">
+            <mat-label>Confirm Password</mat-label>
+            <input
+              [type]="hidden ? 'password' : 'text'"
+              [(ngModel)]="register.confirmPassword"
+              [formControl]="confirmPassword"
+              matInput
+              required
+            />
+            <mat-icon matSuffix (click)="hidden = !hidden">{{
+              hidden ? "visibility_off" : "visibility"
+            }}</mat-icon>
+            <mat-error *ngIf="password.invalid">{{
+              getConfirmPasswordErrorMsg()
+            }}</mat-error>
+          </mat-form-field>
+        </div>
+        <div *ngIf="passwordMatching() !== true" class="password-matching">
+          <span class="pass-not-match">
+            Password didn't match
+          </span>
+        </div>
+        <div class="create-button">
+          <button
+            mat-button
+            class="buttons"
+            [disabled]="
+              getErrorMessage() != '' ||
+              getFirstNameErrorMsg() != '' ||
+              getLastNameErrorMsg() != '' ||
+              getPasswordErrorMsg() != '' ||
+              getConfirmPasswordErrorMsg() != '' ||
+              passwordMatching() != true
+            "
+            (click)="submit()"
+          >
+            Create your IMDb account
+          </button>
+        </div>
+        <div class="create-button">
+          <button mat-button class="buttons" [routerLink]="['/login']">
+            Already have a account?
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>

@@ -6,8 +6,18 @@ import { MovieCardComponent } from "./component/movie-card/movie-card.component"
 import { ShowMovieDetailsComponent } from "./component/show-movie-details/show-movie-details.component";
 import { UpdateMovieDetailsComponent } from "./component/update-movie-details/update-movie-details.component";
 import { AddNewActorComponent } from "./component/add-new-actor/add-new-actor.component";
+import { LoginComponent } from "./component/login/login.component";
+import { RegistartionComponent } from "./component/registartion/registartion.component";
+import { ForgotPasswordComponent } from "./component/forgot-password/forgot-password.component";
+import { VerifyUserComponent } from "./component/verify-user/verify-user.component";
+import { ResetPasswordComponent } from "./component/reset-password/reset-password.component";
 
 const routes: Routes = [
+  { path: "register", component: RegistartionComponent },
+  { path: "verifyuser/:token", component: VerifyUserComponent },
+  { path: "login", component: LoginComponent },
+  { path: "forgotpassword", component: ForgotPasswordComponent },
+  { path: "resetpassword/:token", component: ResetPasswordComponent },
   {
     path: "home",
     component: DashboardComponent,

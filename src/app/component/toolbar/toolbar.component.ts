@@ -8,8 +8,11 @@ import { Component, OnInit } from "@angular/core";
 export class ToolbarComponent implements OnInit {
   opened: boolean = false;
   panelOpenState: boolean = false;
-  constructor() { }
+  token: string;
+  constructor() {}
 
-  ngOnInit() { }
-
+  ngOnInit() {
+    this.token = localStorage.getItem("token");
+    console.log(this.token.length);
+  }
 }

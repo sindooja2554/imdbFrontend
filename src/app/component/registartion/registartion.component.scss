@@ -1,3 +1,8 @@
+html,
+body {
+  height: 100% !important;
+}
+
 label {
   font-weight: bold;
   margin-right: 10px;
@@ -17,15 +22,15 @@ label {
   vertical-align: middle;
 }
 /* form {
-    display:inline-block;
-    border:1px solid lightgray;
-    border-radius: 2.5%; 
-    width: 400px;
-    height: 300px; */
+      display:inline-block;
+      border:1px solid lightgray;
+      border-radius: 2.5%; 
+      width: 400px;
+      height: 300px; */
 /* padding:50px 0; */
 /* padding: 48px 40px 36px;
-    background: white;
-} */
+      background: white;
+  } */
 
 .example-card {
   display: inline-block;
@@ -62,11 +67,20 @@ label {
   margin-bottom: 5%;
 }
 
-.paragraph {
-  font-size: 25px;
+.paragraphs {
+  font-size: 30px;
   padding: 8px 0px 0px;
   margin-bottom: 2%;
   height: 50px;
+}
+
+.paragraph {
+  font-size: 30px;
+  padding: 8px 0px 0px;
+  margin-bottom: 2%;
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .imdb-logo {
@@ -89,6 +103,18 @@ input::-webkit-input-placeholder {
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 10px;
+}
+
+.create-button {
+  padding-bottom: 10px;
+}
+
+.password-matching {
+  padding-bottom: 10px;
+}
+
+.pass-not-match {
+  color: Red;
 }
 
 ::ng-deep .mat-form-field-flex > .mat-form-field-infix {

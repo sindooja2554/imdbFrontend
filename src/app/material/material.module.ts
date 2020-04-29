@@ -13,6 +13,9 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material";
 import { MatRadioModule } from "@angular/material/radio";
+import { MatInputModule } from "@angular/material";
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [],
@@ -31,6 +34,8 @@ import { MatRadioModule } from "@angular/material/radio";
     MatDatepickerModule,
     MatNativeDateModule,
     MatRadioModule,
+    MatInputModule,
+    MatSnackBarModule
   ],
   exports: [
     CommonModule,
@@ -47,6 +52,8 @@ import { MatRadioModule } from "@angular/material/radio";
     MatDatepickerModule,
     MatNativeDateModule,
     MatRadioModule,
+    MatInputModule,
+    MatSnackBarModule
   ],
 })
 export class MaterialModule {}
