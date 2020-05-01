@@ -13,6 +13,6 @@ export class ToolbarComponent implements OnInit {
 
   ngOnInit() {
     this.token = localStorage.getItem("token");
-    console.log(this.token.length);
+    console.log(this.token);
   }
 }

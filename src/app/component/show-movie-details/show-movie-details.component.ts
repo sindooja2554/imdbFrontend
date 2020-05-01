@@ -1,27 +1,33 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, EventEmitter, Output } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { Router } from "@angular/router";
-import { MovieService } from '../../services/movie/movie.service'
-import { DataService } from '../../services/data/data.service'
-
+import { MovieService } from "../../services/movie/movie.service";
+import { DataService } from "../../services/data/data.service";
+import { Movie } from "../../model/movie/movie";
 @Component({
-  selector: 'app-show-movie-details',
-  templateUrl: './show-movie-details.component.html',
-  styleUrls: ['./show-movie-details.component.scss']
+  selector: "app-show-movie-details",
+  templateUrl: "./show-movie-details.component.html",
+  styleUrls: ["./show-movie-details.component.scss"],
 })
 export class ShowMovieDetailsComponent implements OnInit {
-
   // details: Object
-  param: any
-  movieDetails: Array<any>;
+  param: any;
+  movieDetails: Movie = new Movie();
   @Output() updateEvent = new EventEmitter<string>();
-  constructor(private router: ActivatedRoute, private movie: MovieService, private data: DataService, private routes: Router) { }
+  constructor(
+    private router: ActivatedRoute,
+    private movie: MovieService,
+    private data: DataService,
+    private routes: Router
+  ) {}
 
   ngOnInit() {
-    this.data.updateDetails.subscribe(details => this.movieDetails = details)
-    this.router.paramMap.subscribe(params => {
+    this.data.updateDetails.subscribe(
+      (details) => (this.movieDetails = details)
+    );
+    this.router.paramMap.subscribe((params) => {
       this.param = params.get("key");
-      var key = atob(this.param)
+      var key = atob(this.param);
       this.getMovieDetails(key);
     });
   }
@@ -32,15 +38,14 @@ export class ShowMovieDetailsComponent implements OnInit {
       // for (let i = 0; i < result.data.length; i++) {
       //   console.log("i", i)
       this.movieDetails = result.data;
-      console.log("data--------=============>", this.movieDetails)
+      console.log("data--------=============>", this.movieDetails);
       // }
       // this.data.updateDetails.subscribe(details => this.movieDetails = details)
-
-    })
+    });
   }
 
   update() {
-    this.data.UpdateMovieDetails(this.movieDetails)
-    this.routes.navigate(["updates"])
+    this.data.UpdateMovieDetails(this.movieDetails);
+    this.routes.navigate(["updates"]);
   }
 }

@@ -1,16 +1,17 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { LoginComponent } from "./component/login/login.component";
+import { RegistartionComponent } from "./component/registartion/registartion.component";
+import { ForgotPasswordComponent } from "./component/forgot-password/forgot-password.component";
+import { VerifyUserComponent } from "./component/verify-user/verify-user.component";
+import { ResetPasswordComponent } from "./component/reset-password/reset-password.component";
 import { DashboardComponent } from "./component/dashboard/dashboard.component";
 import { ToolbarComponent } from "./component/toolbar/toolbar.component";
 import { MovieCardComponent } from "./component/movie-card/movie-card.component";
 import { ShowMovieDetailsComponent } from "./component/show-movie-details/show-movie-details.component";
 import { UpdateMovieDetailsComponent } from "./component/update-movie-details/update-movie-details.component";
 import { AddNewActorComponent } from "./component/add-new-actor/add-new-actor.component";
-import { LoginComponent } from "./component/login/login.component";
-import { RegistartionComponent } from "./component/registartion/registartion.component";
-import { ForgotPasswordComponent } from "./component/forgot-password/forgot-password.component";
-import { VerifyUserComponent } from "./component/verify-user/verify-user.component";
-import { ResetPasswordComponent } from "./component/reset-password/reset-password.component";
+import { AddNewProducerComponent } from "./component/add-new-producer/add-new-producer.component";
 
 const routes: Routes = [
   { path: "register", component: RegistartionComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
       { path: "movie", component: MovieCardComponent },
       { path: "movie/:key", component: ShowMovieDetailsComponent },
       { path: "actor", component: AddNewActorComponent },
+      { path: "producer", component: AddNewProducerComponent },
     ],
   },
   { path: "updates", component: UpdateMovieDetailsComponent },

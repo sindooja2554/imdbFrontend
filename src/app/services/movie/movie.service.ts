@@ -21,4 +21,9 @@ export class MovieService {
     console.log("in service");
     return this.http.update("movie/" + data._id, data);
   }
+
+  removeActor(data) {
+    console.log("in service");
+    return this.http.post("removeactor/" + data._id, data);
+  }
 }

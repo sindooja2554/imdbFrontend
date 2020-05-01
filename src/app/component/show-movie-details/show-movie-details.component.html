@@ -1,85 +1,111 @@
-<div class="list">
-    <mat-card class="example-card" *ngIf="movieDetails!==undefinied">
-        <!-- <mat-card-header> -->
-        <div class="title-movie">
-            <mat-card-title>{{movieDetails.name}}</mat-card-title>
-            <div class="rating" *ngIf="movieDetails!==undefinied">
-                <div class="star-rating">
-                    <div class="rate">
-                        <svg *ngIf="movieDetails.rating !== null" width="20" height="20"
-                            xmlns="http://www.w3.org/2000/svg" class="ipc-icon ipc-icon--star-inline"
-                            viewBox="0 0 24 24" fill="currentColor" role="presentation">
-                            <path
-                                d="M12 20.1l5.82 3.682c1.066.675 2.37-.322 2.09-1.584l-1.543-6.926 5.146-4.667c.94-.85.435-2.465-.799-2.567l-6.773-.602L13.29.89a1.38 1.38 0 0 0-2.581 0l-2.65 6.53-6.774.602C.052 8.126-.453 9.74.486 10.59l5.147 4.666-1.542 6.926c-.28 1.262 1.023 2.26 2.09 1.585L12 20.099z">
-                            </path>
-                        </svg>
-                    </div>
-                    <mat-card-title *ngIf="movieDetails!==undefinied">
-                        {{movieDetails.rating}}
-                    </mat-card-title>
-                </div>
-                <div class="star-rating">
-                    <mat-icon>star_border</mat-icon>
-                    <mat-card-title>
-                        Rate
-                    </mat-card-title>
-                </div>
-            </div>
+<div class="list" *ngIf="movieDetails !== undefinied">
+  <mat-card class="example-card" *ngIf="movieDetails !== undefinied">
+    <!-- <mat-card-header> -->
+    <div class="title-movie">
+      <mat-card-title>{{ movieDetails.name }}</mat-card-title>
+      <div class="rating" *ngIf="movieDetails !== undefinied">
+        <div class="star-rating">
+          <div class="rate">
+            <svg
+              *ngIf="movieDetails.rating !== null"
+              width="20"
+              height="20"
+              xmlns="http://www.w3.org/2000/svg"
+              class="ipc-icon ipc-icon--star-inline"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              role="presentation"
+            >
+              <path
+                d="M12 20.1l5.82 3.682c1.066.675 2.37-.322 2.09-1.584l-1.543-6.926 5.146-4.667c.94-.85.435-2.465-.799-2.567l-6.773-.602L13.29.89a1.38 1.38 0 0 0-2.581 0l-2.65 6.53-6.774.602C.052 8.126-.453 9.74.486 10.59l5.147 4.666-1.542 6.926c-.28 1.262 1.023 2.26 2.09 1.585L12 20.099z"
+              ></path>
+            </svg>
+          </div>
+          <mat-card-title *ngIf="movieDetails !== undefinied">
+            {{ movieDetails.rating }}
+          </mat-card-title>
         </div>
-        <!-- </mat-card-header> -->
-        <img mat-card-image [src]="movieDetails.poster" alt="Poster of the movie">
-        <mat-card-content>
-            <p class="plot">
-                {{movieDetails.plot}}
-            </p>
-        </mat-card-content>
-        <mat-card-actions>
-            <div class="actors-of-movie">
-                <span class="title"><b>Release Date :</b></span>
-                <span class="release-date">{{movieDetails.releaseDate.split("/")[2]}}</span>
-            </div>
-            <div class="actors-of-movie" *ngIf="movieDetails.actors !== []">
-                <span class="title"><b>Cast :</b></span>
-                <div *ngIf="movieDetails.actors[0]">
-                    <a class="actor-name"
-                        href="https://en.wikipedia.org/wiki/{{movieDetails.actors[0].name}}">{{movieDetails.actors[0].name}}</a>
-                </div>
-                <div *ngIf="movieDetails.actors[1]">
-                    <a class="actor-name"
-                        href="https://en.wikipedia.org/wiki/{{movieDetails.actors[1].name}}">{{movieDetails.actors[1].name}}</a>
-                </div>
-                <div *ngIf="movieDetails.actors[2]">
-                    <a class="actor-name">
-                        +{{movieDetails.actors.length-2}}
-                    </a>
-                </div>
-            </div>
-            <div class="actors-of-movie" *ngIf="movieDetails.producer !== undefinied">
-                <span class="title"><b>Producer :</b></span>
-                <!-- <div> -->
-                <a class="actor-name"
-                    href="https://en.wikipedia.org/wiki/{{movieDetails.producer.name}}">{{movieDetails.producer.name}}</a>
-                <!-- </div> -->
-            </div>
-            <div class="buttons">
-                <button mat-button class="button">Share</button>
-                <button mat-button class="button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                        class="ipc-icon ipc-icon--add ipc-button__icon ipc-button__icon--pre" viewBox="0 0 24 24"
-                        fill="currentColor" role="presentation">
-                        <path fill="none" d="M0 0h24v24H0V0z"></path>
-                        <path
-                            d="M18 13h-5v5c0 .55-.45 1-1 1s-1-.45-1-1v-5H6c-.55 0-1-.45-1-1s.45-1 1-1h5V6c0-.55.45-1 1-1s1 .45 1 1v5h5c.55 0 1 .45 1 1s-.45 1-1 1z">
-                        </path>
-                    </svg>
-                    WatchList
-                </button>
-            </div>
-            <div class="update">
-                <button mat-button class="button" (click)="update()">
-                    Edit Details
-                </button>
-            </div>
-        </mat-card-actions>
-    </mat-card>
+        <div class="star-rating">
+          <mat-icon>star_border</mat-icon>
+          <mat-card-title>
+            Rate
+          </mat-card-title>
+        </div>
+      </div>
+    </div>
+    <!-- </mat-card-header> -->
+    <img mat-card-image [src]="movieDetails.poster" alt="Poster of the movie" />
+    <mat-card-content>
+      <p class="plot">
+        {{ movieDetails.plot }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="actors-of-movie">
+        <span class="title"><b>Release Date :</b></span>
+        <span class="release-date">{{
+          movieDetails.releaseDate.split("/")[2]
+        }}</span>
+      </div>
+      <div class="actors-of-movie" *ngIf="movieDetails.actors !== []">
+        <span class="title"><b>Cast :</b></span>
+        <div *ngIf="movieDetails.actors[0]">
+          <a
+            class="actor-name"
+            href="https://en.wikipedia.org/wiki/{{
+              movieDetails.actors[0].name
+            }}"
+            >{{ movieDetails.actors[0].name }}</a
+          >
+        </div>
+        <div *ngIf="movieDetails.actors[1]">
+          <a
+            class="actor-name"
+            href="https://en.wikipedia.org/wiki/{{
+              movieDetails.actors[1].name
+            }}"
+            >{{ movieDetails.actors[1].name }}</a
+          >
+        </div>
+        <div *ngIf="movieDetails.actors[2]">
+          <a class="actor-name"> +{{ movieDetails.actors.length - 2 }} </a>
+        </div>
+      </div>
+      <div class="actors-of-movie" *ngIf="movieDetails.producer !== undefinied">
+        <span class="title"><b>Producer :</b></span>
+        <!-- <div> -->
+        <a
+          class="actor-name"
+          href="https://en.wikipedia.org/wiki/{{ movieDetails.producer.name }}"
+          >{{ movieDetails.producer.name }}</a
+        >
+        <!-- </div> -->
+      </div>
+      <div class="buttons">
+        <button mat-button class="button">Share</button>
+        <button mat-button class="button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            class="ipc-icon ipc-icon--add ipc-button__icon ipc-button__icon--pre"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            role="presentation"
+          >
+            <path fill="none" d="M0 0h24v24H0V0z"></path>
+            <path
+              d="M18 13h-5v5c0 .55-.45 1-1 1s-1-.45-1-1v-5H6c-.55 0-1-.45-1-1s.45-1 1-1h5V6c0-.55.45-1 1-1s1 .45 1 1v5h5c.55 0 1 .45 1 1s-.45 1-1 1z"
+            ></path>
+          </svg>
+          WatchList
+        </button>
+      </div>
+      <div class="update">
+        <button mat-button class="button" (click)="update()">
+          Edit Details
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
 </div>

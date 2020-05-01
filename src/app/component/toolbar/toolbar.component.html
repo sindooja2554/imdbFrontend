@@ -35,10 +35,10 @@
       </svg>
       WatchList
     </button>
-    <button mat-button class="signIn" *ngIf="token.length === 0">
+    <button mat-button class="signIn" *ngIf="token === null">
       Sign In
     </button>
-    <button mat-buton class="signIn" *ngIf="token.length !== 0">
+    <button mat-buton class="signIn" *ngIf="token !== null">
       Sign Out
     </button>
   </div>

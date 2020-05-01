@@ -50,7 +50,9 @@
         {{ actor.name }}
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>Remove Actor</button>
+        <button mat-menu-item (click)="remove_Actor(actor)">
+          Remove Actor
+        </button>
       </mat-menu>
     </div>
     <button mat-button class="actor-name" (click)="openDialog()">
@@ -89,7 +91,7 @@
     </div>
   </div> -->
   <div class="edit-movie-name">
-    <button mat-button class="save" (click)="updateMovieDetails(movieDetails)">
+    <button mat-button class="save" (click)="updateMovieDetails()">
       Save & Close
     </button>
     <button mat-button class="cancel">
