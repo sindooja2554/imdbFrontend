@@ -74,15 +74,18 @@
           </div>
         </mat-expansion-panel-header>
         <mat-list role="list">
+          <button matbutton class="drawerButton" (click)="addMovie()">
+            <mat-list-item role="listitem">Add Movie</mat-list-item>
+          </button>
           <button matbutton class="drawerButton">
             <mat-list-item role="listitem">Top Rated Movies</mat-list-item>
           </button>
           <button matbutton class="drawerButton">
             <mat-list-item role="listitem">Coming Soon</mat-list-item>
           </button>
-          <button matbutton class="drawerButton">
+          <!-- <button matbutton class="drawerButton">
             <mat-list-item role="listitem">Most Popular Movies</mat-list-item>
-          </button>
+          </button> -->
         </mat-list>
       </mat-expansion-panel>
     </mat-accordion>

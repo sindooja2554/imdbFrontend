@@ -23,13 +23,14 @@ export class AddNewActorComponent implements OnInit {
   save() {
     console.log("value------------------------->", this.actor);
     this.data.actor(this.actor);
-    this.dialogRef.close(
-      (this.actor = {
-        name: "",
-        sex: "",
-        dob: "",
-        bio: "",
-      })
-    );
+    this.dialogRef
+      .close
+      // (this.actor = {
+      //   name: "",
+      //   sex: "",
+      //   dob: "",
+      //   bio: "",
+      // })
+      ();
   }
 }

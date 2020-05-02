@@ -1,0 +1,72 @@
+.list {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+::ng-deep .mat-datepicker-toggle {
+  color: black;
+}
+
+.example-card {
+  background-color: #1b1919;
+}
+
+.movies-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.movie {
+  width: 355px;
+  display: flex;
+  align-items: center;
+  outline: none;
+}
+
+.fields {
+  display: flex;
+  align-items: center;
+  font-size: larger;
+  color: white;
+}
+
+.cdk-text-field-autofill-monitored:not(:-webkit-autofill) {
+  width: 100%;
+  -webkit-animation-name: cdk-text-field-autofill-end;
+  animation-name: cdk-text-field-autofill-end;
+  outline: none;
+  border: none;
+}
+
+.details {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.calender {
+  width: 377px;
+  background-color: white;
+  display: flex;
+  justify-content: space-evenly;
+  border-width: 2px;
+  border-color: initial;
+}
+
+.add-actor-name {
+  color: white;
+  background: #d8ae15;
+}
+
+.button {
+  color: white;
+  margin-right: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}

@@ -3,4 +3,5 @@ export class Actor {
   bio: string;
   dob: string;
   sex: string;
+  _id: string;
 }

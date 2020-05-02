@@ -1,0 +1,28 @@
+<mat-card class="example-card">
+  <div class="poster">
+    <button mat-icon-button class="cancel" (click)="cancel()">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </div>
+  <div class="bottom">
+    <div class="sectionBelow">
+      <label class="fileContainer">
+        Select a poster for movie from your computer
+        <input type="file" name="image" (change)="onFileSelected($event)" />
+      </label>
+    </div>
+    <div class="uploadButton">
+      <button
+        mat-raised-button
+        class="setProfile"
+        color="primary"
+        (click)="setPoster()"
+      >
+        Set as poster
+      </button>
+      <button mat-raised-button class="cancelButton" (click)="cancel()">
+        Cancel
+      </button>
+    </div>
+  </div>
+</mat-card>

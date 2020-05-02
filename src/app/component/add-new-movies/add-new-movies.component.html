@@ -1,0 +1,75 @@
+<div class="list">
+  <!-- <div class="add-movie-card"> -->
+  <mat-card class="example-card">
+    <div class="movies-details">
+      <span class="fields">
+        Name :
+      </span>
+      <input
+        class="movie"
+        placeholder="Movie's name"
+        [(ngModel)]="movie.name"
+      />
+    </div>
+    <div class="movies-details">
+      <span class="fields">
+        Plot :
+      </span>
+      <input class="movie" placeholder="Plot" [(ngModel)]="movie.plot" />
+    </div>
+    <div class="details">
+      <span class="fields">
+        Release Date :
+      </span>
+      <div class="calender">
+        <input
+          matInput
+          [matDatepicker]="picker"
+          placeholder="Choose a Release Date"
+          [(ngModel)]="movie.releaseDate"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </div>
+    </div>
+    <div class="movies-details">
+      <span class="fields">
+        Year Of Release:
+      </span>
+      <input
+        class="movie"
+        placeholder="Year Of Release"
+        [(ngModel)]="movie.yearOfRelease"
+      />
+    </div>
+    <div class="movies-details">
+      <span class="fields">
+        Add Actor:
+      </span>
+      <button mat-button class="add-actor-name" (click)="openDialog()">
+        Add Actor
+      </button>
+    </div>
+    <div class="movies-details">
+      <span class="fields">
+        Add Producer:
+      </span>
+      <button
+        mat-button
+        class="add-actor-name"
+        (click)="openDialogTooAddProducer()"
+      >
+        Add Producer
+      </button>
+    </div>
+    <div class="buttons">
+      <button mat-button class="button" (click)="save()">
+        Save
+      </button>
+      <button mat-button class="button">
+        cancel
+      </button>
+    </div>
+  </mat-card>
+  <!-- </div> -->
+</div>

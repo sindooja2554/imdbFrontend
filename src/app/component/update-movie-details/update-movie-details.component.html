@@ -9,7 +9,7 @@
       alt="Poster of the movie"
     />
     <div class="add-poster">
-      <button mat-button class="button">
+      <button mat-button class="button" (click)="uploadPoster()">
         <mat-icon>add</mat-icon>
         Add new poster
       </button>
@@ -79,22 +79,11 @@
       </textarea
     >
   </div>
-
-  <!-- <div class="edit-movie-name">
-    <span class="edit-movie">
-      Edit Release Date:
-    </span>
-    <div class="title">
-      <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="movieDetails.releaseDate"/>
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </div>
-  </div> -->
   <div class="edit-movie-name">
     <button mat-button class="save" (click)="updateMovieDetails()">
       Save & Close
     </button>
-    <button mat-button class="cancel">
+    <button mat-button class="cancel" (click)="cancel()">
       Cancel
     </button>
   </div>

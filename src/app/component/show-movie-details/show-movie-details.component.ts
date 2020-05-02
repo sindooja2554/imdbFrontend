@@ -28,6 +28,7 @@ export class ShowMovieDetailsComponent implements OnInit {
     this.router.paramMap.subscribe((params) => {
       this.param = params.get("key");
       var key = atob(this.param);
+      console.log("key ----------------------------->", key);
       this.getMovieDetails(key);
     });
   }

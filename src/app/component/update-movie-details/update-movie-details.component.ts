@@ -7,8 +7,11 @@ import {
   MAT_DIALOG_DATA,
 } from "@angular/material/dialog";
 import { AddNewActorComponent } from "../add-new-actor/add-new-actor.component";
-import { MovieService } from "../../services/movie/movie.service";
 import { AddNewProducerComponent } from "../add-new-producer/add-new-producer.component";
+import { AddPosterComponent } from "../add-poster/add-poster.component";
+
+import { MovieService } from "../../services/movie/movie.service";
+
 import { Actor } from "../../model/actor/actor";
 import { Movie } from "../../model/movie/movie";
 import { Producer } from "../../model/producer/producer";
@@ -23,6 +26,7 @@ export class UpdateMovieDetailsComponent implements OnInit {
   actorDetails: Actor = new Actor();
   producerDetails: Producer = new Producer();
   length: number;
+  selectedFile = null;
   constructor(
     private data: DataService,
     public dialog: MatDialog,
@@ -42,6 +46,12 @@ export class UpdateMovieDetailsComponent implements OnInit {
     );
   }
 
+  uploadPoster() {
+    this.dialog.open(AddPosterComponent, {
+      data: { _id: this.movieDetails._id },
+    });
+  }
+
   openDialog(): void {
     this.dialog.open(AddNewActorComponent);
   }
@@ -51,10 +61,6 @@ export class UpdateMovieDetailsComponent implements OnInit {
   }
 
   updateMovieDetails(): void {
-    console.log("data for updating==============>", this.movieDetails);
-    console.log("this.actorDetails==============>", this.actorDetails);
-    console.log("this.producerDetails===========>", this.producerDetails);
-    console.log("length============>", this.movieDetails.actors.length);
     console.log(Object.getOwnPropertyNames(this.actorDetails).length);
     if (Object.getOwnPropertyNames(this.actorDetails).length !== 0) {
       var search = this.search(
@@ -64,7 +70,6 @@ export class UpdateMovieDetailsComponent implements OnInit {
       );
       this.length = this.movieDetails.actors.length + 1;
       if (search === false) {
-        console.log("this.length", this.length);
         this.movieDetails.actors.push(this.actorDetails);
       }
     }
@@ -83,7 +88,6 @@ export class UpdateMovieDetailsComponent implements OnInit {
   remove_Actor(actor) {
     for (let i = 0; i < this.movieDetails.actors.length; i++) {
       if (this.movieDetails.actors[i].name === actor.name) {
-        console.log("i=============>", i);
         this.movieDetails.actors.splice(i, 1);
       }
     }
@@ -91,21 +95,23 @@ export class UpdateMovieDetailsComponent implements OnInit {
       _id: this.movieDetails._id,
       actorId: actor._id,
     };
-    console.log(remove_actor);
     this.movie.removeActor(remove_actor).subscribe((result: any) => {
       console.log(result);
     });
   }
 
   search(array, length, valueToSearch) {
-    console.log("value to search---------------->", valueToSearch);
     for (let i = 0; i < length; i++) {
-      console.log("loop running-------------->", i, length);
       if (array[i].name === valueToSearch.name) {
         return true;
       } else if (i === length - 1) {
         return false;
       }
     }
+  }
+
+  cancel() {
+    let key = btoa(this.movieDetails._id);
+    this.router.navigate(["home/movie/" + key]);
   }
 }

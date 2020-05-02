@@ -21,6 +21,8 @@ import { RegistartionComponent } from './component/registartion/registartion.com
 import { VerifyUserComponent } from './component/verify-user/verify-user.component';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
+import { AddPosterComponent } from './component/add-poster/add-poster.component';
+import { AddNewMoviesComponent } from './component/add-new-movies/add-new-movies.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { ResetPasswordComponent } from './component/reset-password/reset-passwor
     VerifyUserComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
+    AddPosterComponent,
+    AddNewMoviesComponent,
   ],
   imports: [
     BrowserModule,

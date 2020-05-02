@@ -12,6 +12,8 @@ import { ShowMovieDetailsComponent } from "./component/show-movie-details/show-m
 import { UpdateMovieDetailsComponent } from "./component/update-movie-details/update-movie-details.component";
 import { AddNewActorComponent } from "./component/add-new-actor/add-new-actor.component";
 import { AddNewProducerComponent } from "./component/add-new-producer/add-new-producer.component";
+import { AddPosterComponent } from "./component/add-poster/add-poster.component";
+import { AddNewMoviesComponent } from "./component/add-new-movies/add-new-movies.component";
 
 const routes: Routes = [
   { path: "register", component: RegistartionComponent },
@@ -28,6 +30,8 @@ const routes: Routes = [
       { path: "movie/:key", component: ShowMovieDetailsComponent },
       { path: "actor", component: AddNewActorComponent },
       { path: "producer", component: AddNewProducerComponent },
+      { path: "poster", component: AddPosterComponent },
+      { path: "addmovies", component: AddNewMoviesComponent },
     ],
   },
   { path: "updates", component: UpdateMovieDetailsComponent },

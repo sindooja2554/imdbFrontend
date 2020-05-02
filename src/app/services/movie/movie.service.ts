@@ -26,4 +26,14 @@ export class MovieService {
     console.log("in service");
     return this.http.post("removeactor/" + data._id, data);
   }
+
+  uploadPoster(data) {
+    console.log("body in service of upload pic", data);
+    return this.http.headerPost("movieposter/" + data._id, data);
+  }
+
+  addMovie(data) {
+    console.log("in service", data);
+    return this.http.post("addmovie", data);
+  }
 }
