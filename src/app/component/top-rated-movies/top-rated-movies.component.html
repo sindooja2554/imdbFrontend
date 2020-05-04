@@ -1,0 +1,6 @@
+<div class="list">
+  <span class="title" *ngIf="movies !== undefined && movies.length !== 0">
+    Top Rated Movies
+  </span>
+  <app-display *ngFor="let movie of movies" [movies]="movie"></app-display>
+</div>

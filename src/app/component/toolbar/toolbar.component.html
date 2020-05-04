@@ -77,10 +77,10 @@
           <button matbutton class="drawerButton" (click)="addMovie()">
             <mat-list-item role="listitem">Add Movie</mat-list-item>
           </button>
-          <button matbutton class="drawerButton">
+          <button matbutton class="drawerButton" (click)="topRatedMovies()">
             <mat-list-item role="listitem">Top Rated Movies</mat-list-item>
           </button>
-          <button matbutton class="drawerButton">
+          <button matbutton class="drawerButton" (click)="upcomingMovies()">
             <mat-list-item role="listitem">Coming Soon</mat-list-item>
           </button>
           <!-- <button matbutton class="drawerButton">
@@ -103,12 +103,12 @@
           </div>
         </mat-expansion-panel-header>
         <mat-list role="list">
-          <button matbutton class="drawerButton">
+          <button matbutton class="drawerButton" (click)="bornToday()">
             <mat-list-item role="listitem">Born Today</mat-list-item>
           </button>
-          <button matbutton class="drawerButton">
+          <!-- <button matbutton class="drawerButton">
             <mat-list-item role="listitem">Most Popular Movies</mat-list-item>
-          </button>
+          </button> -->
         </mat-list>
       </mat-expansion-panel>
     </mat-accordion>
@@ -144,9 +144,9 @@
           <button matbutton class="drawerButton">
             <mat-list-item role="listitem">Help Centre</mat-list-item>
           </button>
-          <button matbutton class="drawerButton">
+          <!-- <button matbutton class="drawerButton">
             <mat-list-item role="listitem">Cotributor Zone</mat-list-item>
-          </button>
+          </button> -->
         </mat-list>
       </mat-expansion-panel>
     </mat-accordion>

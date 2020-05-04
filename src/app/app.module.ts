@@ -17,12 +17,15 @@ import { UpdateMovieDetailsComponent } from "./component/update-movie-details/up
 import { AddNewActorComponent } from "./component/add-new-actor/add-new-actor.component";
 import { LoginComponent } from "./component/login/login.component";
 import { AddNewProducerComponent } from "./component/add-new-producer/add-new-producer.component";
-import { RegistartionComponent } from './component/registartion/registartion.component';
-import { VerifyUserComponent } from './component/verify-user/verify-user.component';
-import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
-import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
-import { AddPosterComponent } from './component/add-poster/add-poster.component';
-import { AddNewMoviesComponent } from './component/add-new-movies/add-new-movies.component';
+import { RegistartionComponent } from "./component/registartion/registartion.component";
+import { VerifyUserComponent } from "./component/verify-user/verify-user.component";
+import { ForgotPasswordComponent } from "./component/forgot-password/forgot-password.component";
+import { ResetPasswordComponent } from "./component/reset-password/reset-password.component";
+import { AddPosterComponent } from "./component/add-poster/add-poster.component";
+import { AddNewMoviesComponent } from "./component/add-new-movies/add-new-movies.component";
+import { UpcomingMoviesComponent } from "./component/upcoming-movies/upcoming-movies.component";
+import { TopRatedMoviesComponent } from './component/top-rated-movies/top-rated-movies.component';
+import { BornTodayComponent } from './component/born-today/born-today.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,9 @@ import { AddNewMoviesComponent } from './component/add-new-movies/add-new-movies
     ResetPasswordComponent,
     AddPosterComponent,
     AddNewMoviesComponent,
+    UpcomingMoviesComponent,
+    TopRatedMoviesComponent,
+    BornTodayComponent,
   ],
   imports: [
     BrowserModule,

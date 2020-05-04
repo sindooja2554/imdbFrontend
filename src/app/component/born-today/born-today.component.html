@@ -1,0 +1,6 @@
+<div class="list">
+  <span class="title" *ngIf="actors.length !== 0">
+    Born Today
+  </span>
+  <app-display *ngFor="let actor of actors" [actors]="actor"></app-display>
+</div>

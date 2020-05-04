@@ -21,4 +21,19 @@ export class ToolbarComponent implements OnInit {
     console.log("Add movies");
     this.router.navigate(["home/addmovies"]);
   }
+
+  upcomingMovies() {
+    console.log("Upcoming Movies");
+    this.router.navigate(["home/upcoming-movies"]);
+  }
+
+  topRatedMovies() {
+    console.log("Top Rated Movies");
+    this.router.navigate(["home/top-rated-movies"]);
+  }
+
+  bornToday() {
+    console.log("Born Today");
+    this.router.navigate(["home/born-today"]);
+  }
 }

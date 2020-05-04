@@ -1,16 +1,11 @@
+import { Actor } from "../actor/actor";
+
 export class Movie {
   name: string;
   _id: "";
   yearOfRelease: number;
   releaseDate: string;
-  actors: [
-    {
-      name: string;
-      sex: string;
-      dob: string;
-      bio: string;
-    }
-  ];
+  actors: Array<Actor> = [];
   producer = {
     name: "",
     sex: "",
