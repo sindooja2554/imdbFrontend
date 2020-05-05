@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
           array.data.data.firstName + " " + array.data.data.lastName;
         localStorage.setItem("fullName", fullName);
         localStorage.setItem("token", token);
-        localStorage.setItem("imageUrl", imageUrl);
+        // localStorage.setItem("imageUrl", imageUrl);
         localStorage.setItem(
           "firstName",
           JSON.stringify(array.data.data.firstName)

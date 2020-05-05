@@ -18,6 +18,7 @@ export class MovieCardComponent implements OnInit {
   mm: string;
   yyyy: number;
   date: string;
+  signOut: boolean = false;
 
   constructor(
     private movie: MovieService,
@@ -43,6 +44,15 @@ export class MovieCardComponent implements OnInit {
     this.data.bornTodayActorDetails.subscribe(
       (details) => (this.bornToday = details)
     );
+    this.data.logOut.subscribe((signOut) => (this.signOut = signOut));
+    if (this.signOut === true) {
+      this.upComingRelease = [];
+      this.topRatedMovies = [];
+      this.bornToday = [];
+      this.data.upcomingMovie(this.upComingRelease);
+      this.data.topRatedMovie(this.topRatedMovies);
+      // this.data.bornTodayActors(this.bornToday);
+    }
   }
 
   getAllMovies() {

@@ -14,7 +14,9 @@ export class DataService {
   upcomingMovies: Array<any> = [];
   topRatedMovies: Array<any> = [];
   actors: Array<any> = [];
+  // logOut: boolean = false;
 
+  private logoutSource = new BehaviorSubject(false);
   private updateSource = new BehaviorSubject(this.details);
   private actorSource = new BehaviorSubject(this.actorDetails);
   private producerSource = new BehaviorSubject(this.producerDetails);
@@ -22,6 +24,7 @@ export class DataService {
   private topRatedMovieSource = new BehaviorSubject(this.topRatedMovies);
   private bornTodayActorSource = new BehaviorSubject(this.actors);
 
+  logOut = this.logoutSource.asObservable();
   actorNewDetails = this.actorSource.asObservable();
   updateDetails = this.updateSource.asObservable();
   producerNewDetails = this.producerSource.asObservable();
@@ -59,5 +62,10 @@ export class DataService {
   bornTodayActors(bornToday: Array<any>) {
     console.log("from data service=================>", bornToday);
     this.topRatedMovieSource.next(bornToday);
+  }
+
+  signOut(logout: boolean) {
+    console.log("from data service=================>", logout);
+    this.logoutSource.next(logout);
   }
 }

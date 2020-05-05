@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { DataService } from "../../services/data/data.service";
 
 @Component({
   selector: "app-toolbar",
@@ -10,9 +11,11 @@ export class ToolbarComponent implements OnInit {
   opened: boolean = false;
   panelOpenState: boolean = false;
   token: string;
-  constructor(private router: Router) {}
+  logOut: boolean = false;
+  constructor(private router: Router, private data: DataService) {}
 
   ngOnInit() {
+    this.data.logOut.subscribe((signOut) => (this.logOut = signOut));
     this.token = localStorage.getItem("token");
     console.log(this.token);
   }
@@ -35,5 +38,11 @@ export class ToolbarComponent implements OnInit {
   bornToday() {
     console.log("Born Today");
     this.router.navigate(["home/born-today"]);
+  }
+
+  signOut() {
+    localStorage.clear();
+    this.data.signOut(true);
+    this.router.navigate(["login"]);
   }
 }

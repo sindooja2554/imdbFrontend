@@ -52,19 +52,19 @@
             <button
               mat-button
               class="buttons"
-              [routerLink]="['/forgotpassword']"
-            >
-              Forgot Password?
-            </button>
-            <button
-              mat-button
-              class="buttons"
               [disabled]="
                 getErrorMessage() != '' || getPasswordErrorMsg() != ''
               "
               (click)="login()"
             >
               Sign In
+            </button>
+            <button
+              mat-button
+              class="buttons"
+              [routerLink]="['/forgotpassword']"
+            >
+              Forgot Password?
             </button>
           </div>
         </div>
