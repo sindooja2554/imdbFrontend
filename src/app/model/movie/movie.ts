@@ -13,4 +13,5 @@ export class Movie {
     bio: "",
   };
   plot: string;
+  watchlisted: boolean = false;
 }

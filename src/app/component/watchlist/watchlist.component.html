@@ -1,0 +1,6 @@
+<div class="list">
+  <span class="title" *ngIf="movie !== undefined && movie.length !== 0">
+    Watch List
+  </span>
+  <app-display *ngFor="let movie of movie" [movies]="movie"></app-display>
+</div>

@@ -31,4 +31,19 @@ export class UserService {
     console.log("body in service==>", user);
     return this.http.headerPost("resetpassword", user);
   }
+
+  findOne() {
+    console.log("body in service==>");
+    return this.http.headerPost("findone", null);
+  }
+
+  addToWatchList(data) {
+    console.log("body in service==>", data);
+    return this.http.headerPost("watchlist/" + data._id, null);
+  }
+
+  removeFromWatchList(data) {
+    console.log("body in service==>", data);
+    return this.http.headerPost("removefromwatchlist/" + data.movieId, null);
+  }
 }

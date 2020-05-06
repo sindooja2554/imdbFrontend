@@ -14,7 +14,8 @@ export class DataService {
   upcomingMovies: Array<any> = [];
   topRatedMovies: Array<any> = [];
   actors: Array<any> = [];
-  // logOut: boolean = false;
+  watchList: string;
+  // addWatchList: Movie = new Movie();
 
   private logoutSource = new BehaviorSubject(false);
   private updateSource = new BehaviorSubject(this.details);
@@ -23,6 +24,9 @@ export class DataService {
   private UpcomingMovieSource = new BehaviorSubject(this.upcomingMovies);
   private topRatedMovieSource = new BehaviorSubject(this.topRatedMovies);
   private bornTodayActorSource = new BehaviorSubject(this.actors);
+  private watchListSource = new BehaviorSubject(false);
+  private removeWatchListSource = new BehaviorSubject(this.watchList);
+  // private addWatchListSource = new BehaviorSubject(this.addWatchList);
 
   logOut = this.logoutSource.asObservable();
   actorNewDetails = this.actorSource.asObservable();
@@ -31,6 +35,9 @@ export class DataService {
   upcomingMovieDetails = this.UpcomingMovieSource.asObservable();
   topRatedMovieDetails = this.topRatedMovieSource.asObservable();
   bornTodayActorDetails = this.bornTodayActorSource.asObservable();
+  watchListed = this.watchListSource.asObservable();
+  removeWatchList = this.removeWatchListSource.asObservable();
+  // addToWatchList = this.addWatchListSource.asObservable();
 
   constructor() {}
 
@@ -68,4 +75,19 @@ export class DataService {
     console.log("from data service=================>", logout);
     this.logoutSource.next(logout);
   }
+
+  watchLists(watchList: boolean) {
+    console.log("from data service=================>", watchList);
+    this.watchListSource.next(watchList);
+  }
+
+  removeWatchListed(removeWatchList: string) {
+    console.log("from data service==================>", removeWatchList);
+    this.removeWatchListSource.next(removeWatchList);
+  }
+
+  // addWatchLists(addWatchList: Movie) {
+  //   console.log("from data service==================>", addWatchList);
+  //   this.addWatchListSource.next(addWatchList);
+  // }
 }

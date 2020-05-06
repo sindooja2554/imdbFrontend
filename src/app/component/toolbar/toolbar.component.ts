@@ -45,4 +45,8 @@ export class ToolbarComponent implements OnInit {
     this.data.signOut(true);
     this.router.navigate(["login"]);
   }
+
+  watchlist() {
+    this.router.navigate(["home/watchlist"]);
+  }
 }

@@ -1,14 +1,15 @@
 <div class="display" *ngIf="movies !== undefinied || actors !== undefinied">
-  <mat-card
-    class="example-card"
-    *ngIf="movies !== undefinied"
-    (click)="movie(movies)"
-  >
-    <img mat-card-image [src]="movies.poster" alt="Poster of the movie" />
-    <span class="name"
+  <mat-card class="example-card" *ngIf="movies !== undefinied">
+    <img
+      mat-card-image
+      [src]="movies.poster"
+      alt="Poster of the movie"
+      (click)="movie(movies)"
+    />
+    <span class="name" (click)="movie(movies)"
       ><b>{{ movies.name }}</b></span
     >
-    <div class="rate">
+    <div class="rate" (click)="movie(movies)">
       <div class="star">
         <svg
           *ngIf="movies.rating !== null"
@@ -26,16 +27,19 @@
         </svg>
       </div>
       <div>
-        <span class="rating" *ngIf="movies.rating !== null">{{
-          movies.rating
-        }}</span>
+        <span
+          class="rating"
+          *ngIf="movies.rating !== null"
+          (click)="movie(movies)"
+          >{{ movies.rating }}</span
+        >
       </div>
-      <div *ngIf="movies.rating === null">
+      <div *ngIf="movies.rating === null" (click)="movie(movies)">
         <span class="rating">No Ratings Yet</span>
       </div>
     </div>
-    <div class="watch">
-      <button class="watchlist">
+    <div class="watch" *ngIf="watchListed === false">
+      <button class="watchlist" (click)="addToWatchList(movies)">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
@@ -51,6 +55,25 @@
           ></path>
         </svg>
         <span class="watchlisted">WatchList</span>
+      </button>
+    </div>
+    <div class="watch" *ngIf="watchListed === true">
+      <button class="watchlists" (click)="removeWatchListed()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          class="ipc-icon ipc-icon--done ipc-icon--inline"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          role="presentation"
+        >
+          <path fill="none" d="M0 0h24v24H0V0z"></path>
+          <path
+            d="M9 16.2l-3.5-3.5a.984.984 0 0 0-1.4 0 .984.984 0 0 0 0 1.4l4.19 4.19c.39.39 1.02.39 1.41 0L20.3 7.7a.984.984 0 0 0 0-1.4.984.984 0 0 0-1.4 0L9 16.2z"
+          ></path>
+        </svg>
+        <span class="watchlisted">WatchListed</span>
       </button>
     </div>
   </mat-card>

@@ -26,6 +26,7 @@ import { AddNewMoviesComponent } from "./component/add-new-movies/add-new-movies
 import { UpcomingMoviesComponent } from "./component/upcoming-movies/upcoming-movies.component";
 import { TopRatedMoviesComponent } from './component/top-rated-movies/top-rated-movies.component';
 import { BornTodayComponent } from './component/born-today/born-today.component';
+import { WatchlistComponent } from './component/watchlist/watchlist.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { BornTodayComponent } from './component/born-today/born-today.component'
     UpcomingMoviesComponent,
     TopRatedMoviesComponent,
     BornTodayComponent,
+    WatchlistComponent,
   ],
   imports: [
     BrowserModule,

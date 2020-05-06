@@ -45,24 +45,16 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    // this.loginData.email= this.email;
     console.log("data", this.loginData);
     this.user.login(this.loginData).subscribe(
       (result) => {
         var array: any = result;
-        console.log("response", result);
-        // var random = Math.floor(Math.random() * (+10 - +1) + +1);
-        // console.log("random------------------->", random);
-        // this.colorBackground = this.colorArray[random];
-        // console.log(this.colorBackground);
-
         var token = array.token.replace(/^"?(.+?)"?$/, "$1");
         var imageUrl = array.data.data.imageUrl.replace(/^"?(.+?)"?$/, "$1");
         var fullName =
           array.data.data.firstName + " " + array.data.data.lastName;
         localStorage.setItem("fullName", fullName);
         localStorage.setItem("token", token);
-        // localStorage.setItem("imageUrl", imageUrl);
         localStorage.setItem(
           "firstName",
           JSON.stringify(array.data.data.firstName)
@@ -72,20 +64,18 @@ export class LoginComponent implements OnInit {
           JSON.stringify(array.data.data.lastName)
         );
         localStorage.setItem("email", JSON.stringify(array.data.data.email));
-        // localStorage.setItem('colorBackground', this.colorBackground);
 
         console.log(localStorage.getItem("imageUrl"));
         console.log(localStorage.getItem("firstName"));
         console.log(localStorage.getItem("lastName"));
         console.log(localStorage.getItem("email"));
         console.log(localStorage.getItem("token"));
-        // console.log(localStorage.getItem("colorBackground"));
+        console.log("array===============================>", array);
         this.router.navigate(["home/movie"]);
         this._snackBar.open("Login Successful", "close")._dismissAfter(2000);
       },
       (err) => {
         console.log("error", err.error.message);
-        // alert(err.error);
         this._snackBar.open(err.error.message, "close")._dismissAfter(2000);
       }
     );

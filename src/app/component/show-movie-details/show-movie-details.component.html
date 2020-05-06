@@ -43,9 +43,11 @@
     <mat-card-actions>
       <div class="actors-of-movie">
         <span class="title"><b>Release Date :</b></span>
-        <span class="release-date">{{
-          movieDetails.releaseDate.split("/")[2]
-        }}</span>
+        <span
+          class="release-date"
+          *ngIf="movieDetails.releaseDate !== undefinied"
+          >{{ movieDetails.releaseDate.split("/")[2] }}</span
+        >
       </div>
       <div class="actors-of-movie" *ngIf="movieDetails.actors !== []">
         <span class="title"><b>Cast :</b></span>
@@ -83,7 +85,12 @@
       </div>
       <div class="buttons">
         <button mat-button class="button">Share</button>
-        <button mat-button class="button">
+        <button
+          mat-button
+          class="button"
+          *ngIf="watchListed === false"
+          (click)="addToWatchList()"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -99,6 +106,28 @@
             ></path>
           </svg>
           WatchList
+        </button>
+        <button
+          mat-button
+          class="button"
+          *ngIf="watchListed === true"
+          (click)="removeWatchListed()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            class="ipc-icon ipc-icon--done ipc-icon--inline"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            role="presentation"
+          >
+            <path fill="none" d="M0 0h24v24H0V0z"></path>
+            <path
+              d="M9 16.2l-3.5-3.5a.984.984 0 0 0-1.4 0 .984.984 0 0 0 0 1.4l4.19 4.19c.39.39 1.02.39 1.41 0L20.3 7.7a.984.984 0 0 0 0-1.4.984.984 0 0 0-1.4 0L9 16.2z"
+            ></path>
+          </svg>
+          WatchListed
         </button>
       </div>
       <div class="update">

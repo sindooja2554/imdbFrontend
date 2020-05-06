@@ -17,6 +17,7 @@ import { AddNewMoviesComponent } from "./component/add-new-movies/add-new-movies
 import { UpcomingMoviesComponent } from "./component/upcoming-movies/upcoming-movies.component";
 import { TopRatedMoviesComponent } from "./component/top-rated-movies/top-rated-movies.component";
 import { BornTodayComponent } from "./component/born-today/born-today.component";
+import { WatchlistComponent } from "./component/watchlist/watchlist.component";
 
 const routes: Routes = [
   { path: "register", component: RegistartionComponent },
@@ -38,6 +39,7 @@ const routes: Routes = [
       { path: "upcoming-movies", component: UpcomingMoviesComponent },
       { path: "top-rated-movies", component: TopRatedMoviesComponent },
       { path: "born-today", component: BornTodayComponent },
+      { path: "watchlist", component: WatchlistComponent },
     ],
   },
   { path: "updates", component: UpdateMovieDetailsComponent },
