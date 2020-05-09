@@ -1,0 +1,29 @@
+.title {
+  width: 100%;
+  color: #d8ae15;
+  display: flex;
+  font-size: xx-large;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.icon {
+  margin: 10px;
+}
+
+.display-help {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  margin: 25px;
+}
+
+.buttons {
+  background: #d8ae15;
+}

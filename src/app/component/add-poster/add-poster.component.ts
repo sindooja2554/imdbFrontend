@@ -1,15 +1,15 @@
-import { Component, OnInit, Inject } from "@angular/core";
-import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
-import { MovieService } from "../../services/movie/movie.service";
+import { Component, OnInit, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MovieService } from '../../services/movie/movie.service';
 
 export interface DialogData {
   _id: any;
 }
 
 @Component({
-  selector: "app-add-poster",
-  templateUrl: "./add-poster.component.html",
-  styleUrls: ["./add-poster.component.scss"],
+  selector: 'app-add-poster',
+  templateUrl: './add-poster.component.html',
+  styleUrls: ['./add-poster.component.scss'],
 })
 export class AddPosterComponent implements OnInit {
   constructor(
@@ -23,7 +23,7 @@ export class AddPosterComponent implements OnInit {
   imageUrl: any;
 
   ngOnInit() {
-    console.log("on in it");
+    console.log('on in it');
   }
 
   cancel() {
@@ -37,15 +37,18 @@ export class AddPosterComponent implements OnInit {
 
   setPoster() {
     const payload = new FormData();
-    payload.append("image", this.selectedFile, this.selectedFile.name);
-    payload.append("_id", this.data._id);
-    console.log("image======================>", payload);
-    this.movie.uploadPoster(payload).subscribe(
+    console.log('image-------------->', this.imageUrl);
+    payload.append('image', this.selectedFile, this.selectedFile.name);
+    let movieId = {
+      _id: this.data._id,
+    };
+    this.movie.uploadPoster(payload, movieId).subscribe(
       (result: any) => {
-        console.log("result====================>", result);
+        console.log('result====================>', result);
+        this.dialogRef.close();
       },
       (err) => {
-        console.log("error", err);
+        console.log('error', err);
       }
     );
   }

@@ -27,6 +27,8 @@ import { UpcomingMoviesComponent } from "./component/upcoming-movies/upcoming-mo
 import { TopRatedMoviesComponent } from './component/top-rated-movies/top-rated-movies.component';
 import { BornTodayComponent } from './component/born-today/born-today.component';
 import { WatchlistComponent } from './component/watchlist/watchlist.component';
+import { HelpCenterComponent } from './component/help-center/help-center.component';
+import { HelpCenterDisplayComponent } from './component/help-center-display/help-center-display.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { WatchlistComponent } from './component/watchlist/watchlist.component';
     TopRatedMoviesComponent,
     BornTodayComponent,
     WatchlistComponent,
+    HelpCenterComponent,
+    HelpCenterDisplayComponent,
   ],
   imports: [
     BrowserModule,

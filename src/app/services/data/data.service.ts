@@ -1,11 +1,11 @@
-import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
-import { Actor } from "../../model/actor/actor";
-import { Movie } from "../../model/movie/movie";
-import { Producer } from "../../model/producer/producer";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { Actor } from '../../model/actor/actor';
+import { Movie } from '../../model/movie/movie';
+import { Producer } from '../../model/producer/producer';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class DataService {
   details: Movie = new Movie();
@@ -15,7 +15,6 @@ export class DataService {
   topRatedMovies: Array<any> = [];
   actors: Array<any> = [];
   watchList: string;
-  // addWatchList: Movie = new Movie();
 
   private logoutSource = new BehaviorSubject(false);
   private updateSource = new BehaviorSubject(this.details);
@@ -26,7 +25,7 @@ export class DataService {
   private bornTodayActorSource = new BehaviorSubject(this.actors);
   private watchListSource = new BehaviorSubject(false);
   private removeWatchListSource = new BehaviorSubject(this.watchList);
-  // private addWatchListSource = new BehaviorSubject(this.addWatchList);
+  private watchListFromDisplaySource = new BehaviorSubject(false);
 
   logOut = this.logoutSource.asObservable();
   actorNewDetails = this.actorSource.asObservable();
@@ -37,57 +36,57 @@ export class DataService {
   bornTodayActorDetails = this.bornTodayActorSource.asObservable();
   watchListed = this.watchListSource.asObservable();
   removeWatchList = this.removeWatchListSource.asObservable();
-  // addToWatchList = this.addWatchListSource.asObservable();
+  watchListFromDisplay = this.watchListFromDisplaySource.asObservable();
 
   constructor() {}
 
   UpdateMovieDetails(UpdateMovieDetails: Movie) {
-    console.log("from dataservice===", UpdateMovieDetails);
+    console.log('from dataservice===', UpdateMovieDetails);
     this.updateSource.next(UpdateMovieDetails);
   }
 
   actor(addActor: Actor) {
-    console.log("from data service=================>", addActor);
+    console.log('from data service=================>', addActor);
     this.actorSource.next(addActor);
   }
 
   producer(addProducer: Producer) {
-    console.log("from data service=================>", addProducer);
+    console.log('from data service=================>', addProducer);
     this.producerSource.next(addProducer);
   }
 
   upcomingMovie(upcomingMovies: Array<any>) {
-    console.log("from data service=================>", upcomingMovies);
+    console.log('from data service=================>', upcomingMovies);
     this.UpcomingMovieSource.next(upcomingMovies);
   }
 
   topRatedMovie(topRatedMovies: Array<any>) {
-    console.log("from data service=================>", topRatedMovies);
+    console.log('from data service=================>', topRatedMovies);
     this.topRatedMovieSource.next(topRatedMovies);
   }
 
   bornTodayActors(bornToday: Array<any>) {
-    console.log("from data service=================>", bornToday);
+    console.log('from data service=================>', bornToday);
     this.topRatedMovieSource.next(bornToday);
   }
 
   signOut(logout: boolean) {
-    console.log("from data service=================>", logout);
+    console.log('from data service=================>', logout);
     this.logoutSource.next(logout);
   }
 
   watchLists(watchList: boolean) {
-    console.log("from data service=================>", watchList);
+    console.log('from data service=================>', watchList);
     this.watchListSource.next(watchList);
   }
 
   removeWatchListed(removeWatchList: string) {
-    console.log("from data service==================>", removeWatchList);
+    console.log('from data service==================>', removeWatchList);
     this.removeWatchListSource.next(removeWatchList);
   }
 
-  // addWatchLists(addWatchList: Movie) {
-  //   console.log("from data service==================>", addWatchList);
-  //   this.addWatchListSource.next(addWatchList);
-  // }
+  watchListsFromDisplay(watchList: boolean) {
+    console.log('from data service==================>', watchList);
+    this.watchListFromDisplaySource.next(watchList);
+  }
 }

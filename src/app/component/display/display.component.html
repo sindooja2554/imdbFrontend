@@ -1,5 +1,5 @@
-<div class="display" *ngIf="movies !== undefinied || actors !== undefinied">
-  <mat-card class="example-card" *ngIf="movies !== undefinied">
+<div class="display" *ngIf="movies !== undefined || actors !== undefined">
+  <mat-card class="example-card" *ngIf="movies !== undefined">
     <img
       mat-card-image
       [src]="movies.poster"
@@ -77,19 +77,18 @@
       </button>
     </div>
   </mat-card>
-  <!-- <div *ngIf="actors !== undefinied"> -->
-  <mat-card class="actor-card" *ngIf="actors !== undefinied">
+
+  <mat-card class="actor-card" *ngIf="actors !== undefined">
     <div class="display-birthday">
-      <span class="actor-name" *ngIf="actors !== undefinied">
+      <span class="actor-name" *ngIf="actors !== undefined">
         {{ actors.name }}
       </span>
-      <span class="actor-name" *ngIf="actors !== undefinied">
-        {{ today[0] - actors.dob.split("/")[2] }}
+      <span class="actor-name" *ngIf="actors !== undefined">
+        {{ today[0] - actors.dob.split('/')[2] }}
       </span>
-      <span class="wish">
-        Happy Birthday {{ actors.name.split(" ")[0] }}!!!
+      <span class="wish" *ngIf="actors !== undefined">
+        Happy Birthday {{ actors.name.split(' ')[0] }}!!!
       </span>
     </div>
   </mat-card>
-  <!-- </div> -->
 </div>
